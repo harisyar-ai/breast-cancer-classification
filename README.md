@@ -20,45 +20,43 @@
 
 The **Breast Cancer Detection** project is a machine learning classification system designed to **accurately distinguish between malignant and benign tumors** using diagnostic features extracted from breast mass images.
 
-The project demonstrates a **complete end-to-end ML workflow**, including:
-- exploratory data analysis,
+This project demonstrates a **complete end-to-end ML workflow**, including:
+- exploratory data analysis (EDA),
 - feature engineering,
-- preprocessing pipelines,
-- multi-model evaluation,
+- preprocessing with pipelines,
 - cross-validation,
+- multi-model comparison,
 - and final model selection.
 
-It is especially useful for:
-- students learning classification pipelines,
-- practitioners exploring healthcare ML applications,
-- and anyone interested in building clean, reproducible ML projects.
+It serves as both an **educational reference** and a **practical healthcare ML example**.
 
 ---
 
 ## Why This Project Matters
 
-Early and accurate detection of breast cancer can significantly improve treatment outcomes and survival rates.  
-Manual diagnosis is time-consuming and subject to variability, while machine learning offers **fast, consistent, and data-driven decision support**.
+Early and accurate detection of breast cancer plays a critical role in improving survival rates and treatment outcomes.  
+Machine learning provides **fast, consistent, and data-driven decision support**, reducing reliance on manual interpretation alone.
 
-This project highlights how classical ML models can:
-- achieve **high diagnostic accuracy**,  
-- reduce false negatives,  
-- and support medical professionals in decision-making.
+This project shows how classical ML algorithms can:
+- achieve **very high diagnostic accuracy**,  
+- minimize false negatives,  
+- and remain interpretable and reproducible.
 
 ---
 
 ## Dataset Overview
 
-This project uses the **built-in Breast Cancer dataset from scikit-learn**, which contains **real diagnostic measurements** computed from digitized images of breast mass biopsies.
+This project uses the **built-in Breast Cancer dataset from scikit-learn**, containing real diagnostic measurements computed from digitized images of breast mass biopsies.
 
 ### Target Classes
 - **0** → Malignant  
 - **1** → Benign  
 
 ### Dataset Characteristics
-- 569 samples  
+- 569 total samples  
 - 30 numerical diagnostic features  
 - Clean dataset with no missing values  
+- Widely used benchmark dataset in medical ML research  
 
 ---
 
@@ -79,42 +77,50 @@ This project uses the **built-in Breast Cancer dataset from scikit-learn**, whic
 
 ---
 
-## Feature Engineering & Processing
+## Feature Engineering & Preprocessing
 
-### Data Exploration
+### 1. Exploratory Analysis
 
-* Target class distribution analysis
-* Feature visualization to understand separability
-* Correlation inspection
+* Class distribution visualization
+* Feature scatter plots to inspect separability
+* Correlation-based feature insight
 
-### Feature Creation
+### 2. Feature Creation
 
-* Ordinal feature: tumor size category (Small / Medium / Large)
-* Nominal feature: texture type (Smooth / Rough)
+Additional features were created to demonstrate encoding techniques:
 
-### Preprocessing Pipeline
+* **Ordinal feature**: Tumor size category (`Small`, `Medium`, `Large`)
+* **Nominal feature**: Texture type (`Smooth`, `Rough`)
 
-* Standard scaling for numerical features
-* Ordinal encoding for ordered categorical features
-* One-hot encoding for nominal categorical features
+### 3. Preprocessing Pipeline
 
-All transformations are combined using a **ColumnTransformer**.
+* **StandardScaler** for numerical features
+* **OrdinalEncoder** for ordered categorical features
+* **OneHotEncoder** for nominal categorical features
+
+All transformations are combined using a **ColumnTransformer**, ensuring clean and reproducible preprocessing.
 
 ---
 
-## Model Selection & Evaluation
+## Model Training & Evaluation
 
-Multiple classification models were trained and evaluated using **5-fold cross-validation** and a held-out test set.
+Multiple classification algorithms were trained and evaluated using **5-fold cross-validation** and a held-out test set.
 
-### Models Evaluated
+### Models Evaluated and Performance
 
-* Logistic Regression (L1, L2)
-* Support Vector Machine (SVM)
-* K-Nearest Neighbors (KNN)
-* Decision Tree
-* Random Forest
+| Model                  | CV Accuracy | Test Accuracy |
+| ---------------------- | ----------- | ------------- |
+| Logistic Regression    | 97.80%      | 97.37%        |
+| Ridge (L2) Regression  | 97.80%      | 97.37%        |
+| Lasso (L1) Regression  | 97.36%      | **98.25%**    |
+| Support Vector Machine | 97.14%      | 97.37%        |
+| K-Nearest Neighbors    | 96.48%      | 97.37%        |
+| Decision Tree          | 92.09%      | 91.23%        |
+| Random Forest          | 95.82%      | 94.74%        |
 
-The final model was selected based on **test accuracy** and generalization performance.
+### Final Model Selection
+
+The **Lasso (L1) Logistic Regression** model achieved the **highest test accuracy (98.25%)** and was selected as the final model.
 
 The trained model is saved as:
 
@@ -126,10 +132,12 @@ best_breast_cancer_model.pkl
 
 ## Results Summary
 
-* Strong separation between malignant and benign classes
-* High classification accuracy
-* Robust performance through cross-validation
-* Reproducible end-to-end ML pipeline
+* Excellent separation between malignant and benign classes
+* Very high classification accuracy (>98%)
+* Strong generalization through cross-validation
+* Clean, production-ready ML pipeline
+
+This confirms that even **simple, well-regularized models** can perform exceptionally well on medical classification tasks.
 
 ---
 
@@ -141,14 +149,16 @@ cd breast-cancer-detection
 pip install -r requirements.txt
 ```
 
+Open the notebook and run all cells to reproduce results.
+
 ---
 
 ## Future Improvements
 
-* Add ROC curve and AUC visualization
-* Integrate SHAP for explainability
-* Deploy as a web application
-* Explore ensemble stacking
+* Add ROC curves and AUC scores
+* Integrate SHAP for model explainability
+* Deploy the model as a web application
+* Explore ensemble or hybrid models
 
 ---
 
