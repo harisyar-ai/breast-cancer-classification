@@ -167,7 +167,8 @@ def get_default_data():
 
 @st.cache_resource
 def load_model():
-    model = joblib.load("F:\Coding\PYTHON\ML_Projects\Breast_Cancer_Classification\model.pkl")   # ← update path if needed
+    # model = joblib.load("F:\Coding\PYTHON\ML_Projects\Breast_Cancer_Classification\model.pkl")   # ← update path if needed
+    model = joblib.load("model.pkl")   # ← update path if needed
     return model
 
 
