@@ -160,6 +160,7 @@ def get_default_data():
 
 @st.cache_resource
 def load_model():
+    # model = joblib.load("F:\Coding\PYTHON\ML_Projects\Breast_Cancer_Classification\model.pkl")   # ← update path if needed
     model = joblib.load("model.pkl")   # ← update path if needed
     return model
 
@@ -196,7 +197,6 @@ with st.sidebar:
         ("About Us",        "👤"),
     ]
 
-    # Inject active style targeting the correct nth button by position
     active_index = [label for label, _ in nav_items].index(st.session_state.page) + 1
     st.markdown(f"""
     <style>
@@ -451,9 +451,4 @@ elif st.session_state.page == "About the Study":
                             display:flex; align-items:center; justify-content:center;
                             font-family:Orbitron,sans-serif; font-size:0.78rem; color:#FF2D78; font-weight:700;'>3</div>
                 <div>
-                    <div style='color:#E8E8FF; font-size:0.88rem; font-weight:600; margin-bottom:4px;'>Lasso Classification</div>
-                    <div style='color:#6B6B9A; font-size:0.82rem; line-height:1.6;'>The L1-regularised logistic regression model assigns a probability to each class, keeping the model sparse and reducing overfitting.</div>
-                </div>
-            </div>
-            <div style='display:flex; gap:16px; align-items:flex-start;'>
-                <div style='background:rgba(57,255,20,0
+                 
