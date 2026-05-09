@@ -317,7 +317,7 @@ if st.session_state.page == "Classify":
     <div style='margin-top:4rem; text-align:center; font-size:0.62rem; color:#6B6B9A;
                 letter-spacing:0.14em; text-transform:uppercase;
                 border-top:1px solid rgba(0,245,255,0.07); padding-top:1.2rem;'>
-        Powered by &nbsp;
+        © 2026 Muhammad Haris Afridi | Powered by &nbsp;
         <span style='color:#00F5FF;'>Scikit-Learn</span> ·
         <span style='color:#FF2D78;'>Lasso Regression</span> ·
         <span style='color:#BF5FFF;'>Streamlit</span>
