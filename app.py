@@ -601,7 +601,7 @@ elif st.session_state.page == "About Us":
             Connect With Me
         </div>
         <div style='font-size:0.88rem; color:#E8E8FF; line-height:2;'>
-            Click here for &nbsp;
+                          &nbsp;
             <a href='https://www.linkedin.com/in/harisyar-ai' target='_blank'
                style='display:inline-flex; align-items:center; gap:6px; text-decoration:none; color:#0A66C2; font-weight:600;'>
                 <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='#0A66C2' style='vertical-align:middle;'>
